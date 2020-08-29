@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spirax&display=swap');
+
+$DarkBlue: hsl(233, 26%, 24%);
+$LimeGreen: hsl(136, 65%, 51%);
+$BrightCyan: hsl(192, 70%, 51%);
+$GrayishBlue: hsl(233, 8%, 62%);
+$LightGrayishGray: hsl(0, 0%, 98%);
+$White: hsl(0, 0%, 100%);
+body{
+  background-color: #eee;
+}
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Public Sans';
+}
+//Global Styling
+
+
+header , section{
+  overflow: hidden;
+  max-width: 1440px;
+}
+.title{
+  color: $DarkBlue;
+}
+.subtitle{
+  color: $GrayishBlue;
+}
+@mixin button {
+  border: none;
+  color: $White;
+  padding: .5rem 3rem;
+  border-radius: 20rem;
+  background: linear-gradient(to right, $LimeGreen , $BrightCyan);
+  outline:none;
+
+}
+
+header{
+  position: relative;
+  .header-container{
+    background-color: $White;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    height: 4rem;
+    .header-logo{
+      background: url('../images/logo.svg') no-repeat center / contain ;
+      height: 2rem;
+      width: 100px;
+    }
+
+    .links{
+      display: flex;
+      .link{
+        color: $GrayishBlue;
+        font-weight: 500;
+        font-size: 1.1rem;
+        margin: 0 .8rem;
+      }
+    }
+    .cta{
+      @include button;
+    }
+    .hamburger{
+      display: none;
+    }
+  }
+}
+main{
+  position: relative;
+  .modal-container{
+    position: absolute;
+    z-index: 500;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 4rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom , rgba(0,0,0,0.88), rgba(0,0,0,0.2));
+    display: none;
+    
+    .modals{
+      border-radius: 5px;
+      font-weight: 600;
+      background-color: white;
+      width: 300px;
+      box-shadow: 0 5px 15px 1px rgba(255,255,255,.5);
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      padding: 1rem;
+      a{
+        color: $DarkBlue;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  .show{
+    display: flex;
+    animation: fade 1s ease-in;
+  }
+
+  .firstSection{
+    position: relative;
+    padding-left:5rem; 
+    background-color: $LightGrayishGray;
+    display: flex;
+    &Text{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        
+        .cta{
+          @include button;
+        }
+    }
+    .illustration{
+      background: url('../images/bg-intro-desktop.svg') no-repeat center / cover;
+      background-position: 10rem;
+      height: 30rem;
+      width: 150%;
+
+      .phones{
+        position: absolute;
+        z-index: 50;
+        height: 35rem;
+        width: 30rem;
+        right: -5rem;
+      }
+     
+    }
+  }
+  .secondSection{
+    background-color: hsla(233, 8%, 62%,.15);
+    padding: 3rem 5rem;
+    &-lower{
+      .col-md-6{
+        .logo{
+          margin-bottom:2.5rem;
+        }
+      }
+    }
+  }
+  .thirdSection{
+    background-color: $LightGrayishGray;
+    padding: 3rem 5rem;
+   
+    .row{
+      .col-md-6{
+        display: flex;
+        padding: 1rem 0;
+        justify-content: center;
+        align-items: center;
+        .inner{
+          overflow: hidden;
+          width: 95%;
+          height: 99%;
+          background-color: $White;
+          border-radius: 5px;
+          img{
+            height: 10rem;
+            width: 100%;
+          }
+          .text{
+            padding: 1rem;
+            .title{
+              font-size:1.2rem;
+            }
+            .subtitle{
+              font-size: .8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+footer{
+  background-color: $DarkBlue;
+  padding-bottom: 1rem;
+  .row{
+    padding: 3rem 5rem;
+
+    .first{
+      .icon-link{
+        .icons{
+          margin-right: 5px;
+        }
+      }
+    }
+    .second,.third{
+      a{
+        color: $LightGrayishGray;
+      }
+    }
+    .fourth{
+      text-align: right;
+      .cta{
+        @include button;
+        margin-bottom: 1rem;
+      }
+      p{
+        color: $LightGrayishGray;
+        font-size: 1rem;
+      }
+    }
+  }
+  .attribution {
+    font-size: 1.1rem;
+    color: $BrightCyan;
+    text-align: center; 
+    }
+  .attribution a { 
+    color: $LimeGreen; 
+  }
+}
+@keyframes fade{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+@import 'responsive';
