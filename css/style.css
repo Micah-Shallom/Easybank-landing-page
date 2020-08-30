@@ -133,17 +133,28 @@ main .firstSectionText .cta {
 }
 
 main .firstSection .illustration {
-  background: url("../images/bg-intro-desktop.svg") no-repeat center/cover;
-  background-position: 10rem;
-  height: 30rem;
   width: 150%;
+  height: 30rem;
+  position: relative;
+}
+
+main .firstSection .illustration::after {
+  width: 100%;
+  height: 40rem;
+  position: absolute;
+  right: -4rem;
+  content: '';
+  background: url("../images/bg-intro-desktop.svg") center no-repeat;
+  background-size: 100%;
+  background-position: 0 -20px;
 }
 
 main .firstSection .illustration .phones {
   position: absolute;
   z-index: 50;
-  height: 35rem;
-  width: 30rem;
+  height: 40rem;
+  width: 100%;
+  top: -4rem;
   right: -5rem;
 }
 
@@ -259,8 +270,27 @@ footer .attribution a {
     display: block;
   }
   main .firstSection {
-    padding-left: 1rem;
+    padding-left: 0rem;
     flex-direction: column-reverse;
+  }
+  main .firstSectionText {
+    text-align: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  main .firstSection .illustration {
+    width: 100%;
+    left: -4rem;
+  }
+  main .firstSection .illustration::after {
+    background: url("../images/bg-intro-mobile.svg") no-repeat center/cover;
+  }
+  main .firstSection .illustration .phones {
+    position: absolute;
+    z-index: 50;
+    height: 28rem;
+    width: 100%;
+    left: 5rem;
   }
   main .secondSection {
     text-align: center;

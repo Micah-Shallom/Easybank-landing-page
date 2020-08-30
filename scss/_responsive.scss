@@ -15,8 +15,29 @@
   }
   main{
     .firstSection{
-      padding-left: 1rem;
+      padding-left: 0rem;
       flex-direction: column-reverse;
+      &Text{
+        text-align: center;
+        align-items: center;
+        margin-top: 1rem;
+      }
+      .illustration{
+        width: 100%;
+        left: -4rem;
+        
+        &::after{
+          background: url('../images/bg-intro-mobile.svg') no-repeat center / cover;
+        }
+
+        .phones{
+          position: absolute;
+          z-index: 50;
+          height: 28rem;
+          width: 100%;
+          left: 5rem;
+        }
+      }
     }
     .secondSection{
       text-align: center;
